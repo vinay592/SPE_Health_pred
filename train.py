@@ -6,7 +6,7 @@ import joblib
 import os
 
 # Load dataset
-data = pd.read_csv("/home/vinay-v-bhandare/Documents/SPE_Project/health-ml/data/dataset.csv")
+data = pd.read_csv("data/dataset.csv")
 
 # Select relevant features
 data = data[['age', 'trestbps', 'chol', 'thalach', 'oldpeak', 'cp', 'exang', 'target']]
