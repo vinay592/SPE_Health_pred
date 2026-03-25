@@ -1,0 +1,19 @@
+- name: Deploy Health ML App
+  hosts: servers
+  become: true
+
+  tasks:
+
+    - name: Pull Docker Image
+      command: docker pull vinayvb18/health-ml-app
+
+    - name: Stop existing container (if any)
+      command: docker stop health-container
+      ignore_errors: yes
+
+    - name: Remove old container
+      command: docker rm health-container
+      ignore_errors: yes
+
+    - name: Run new container
+      command: docker run -d -p 5000:5000 --name health-container vinayvb18/health-ml-app
